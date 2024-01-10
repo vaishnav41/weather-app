@@ -12,9 +12,11 @@ async function checkWeather(city){
     if(data.message){
         document.getElementById("error").classList.remove("d-none");
         document.getElementById("error").innerHTML = data.message + "!!!";
+        document.getElementById("details").classList.add("d-none");
     }else{
+    document.getElementById("error").classList.add("d-none");
     document.getElementById("city").innerHTML = data.name;
-    document.getElementById("temp").innerHTML = data.main.temp + "°C";    
+    document.getElementById("temp").innerHTML = Math.round(data.main.temp) + "°C";    
     document.getElementById("humidity").innerHTML = "Humidity = " + data.main.humidity + "%";    
     document.getElementById("wind-speed").innerHTML = "Wind speed = " + data.wind.speed + "km/h";    
     document.getElementById("details").classList.remove("d-none");
