@@ -10,7 +10,8 @@ async function checkWeather(city){
     var data = await response.json();
     console.log(data);
     if(data.message){
-        const ne = document.createTextNode("h2");
+        document.getElementById("error").classList.remove("d-none");
+        document.getElementById("error").innerHTML = data.message + "!!!";
     }else{
     document.getElementById("city").innerHTML = data.name;
     document.getElementById("temp").innerHTML = data.main.temp + "°C";    
